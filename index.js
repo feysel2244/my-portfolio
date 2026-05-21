@@ -124,7 +124,6 @@ navLinks.forEach(link => {
   })
 })
 
-/
 document.addEventListener('click', (e) => {
   if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
     navMenu.classList.remove('menu-open')
@@ -148,4 +147,31 @@ scrollTopBtn.addEventListener('click', () => {
     top: 0,
     behavior: 'smooth'
   })
+})
+function startRevealAnimation() {
+  const revealElements = document.querySelectorAll('.reveal')
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate')
+        } else {
+          entry.target.classList.remove('animate')
+        }
+      })
+    }, { threshold: 0.2 })
+
+    revealElements.forEach(el => {
+      observer.observe(el)
+    })
+  } else {
+    revealElements.forEach(el => {
+      el.classList.add('animate')
+    })
+  }
+}
+
+window.addEventListener('load', () => {
+  setTimeout(startRevealAnimation, 150)
 })
