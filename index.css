@@ -790,3 +790,31 @@ footer{
     gap:26px;
   }
 }
+.scroll-top {
+  position: fixed;
+  font-weight: bold;
+  bottom: 30px;
+  right: 30px;
+  background-color: #222222;
+  color: #c2d8c4;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.2s ease;
+  z-index: 99;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: #2f6f3e;
+  color: #ffffff;
+}
