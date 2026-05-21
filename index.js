@@ -103,19 +103,19 @@ const menuBtn = document.querySelector('.menu-btn')
 const navMenu = document.getElementById('nav-menu')
 const navLinks = document.querySelectorAll('#nav-menu a')
 
-// toggle menu open/close
+
 menuBtn.addEventListener('click', () => {
   navMenu.classList.toggle('menu-open')
 
-  // switch icon between ☰ and ✕
+  //
   menuBtn.textContent = navMenu.classList.contains('menu-open') ? '✕' : '☰'
 
-  // update accessibility attribute
+ 
   menuBtn.setAttribute('aria-expanded',
     navMenu.classList.contains('menu-open'))
 })
 
-// close menu when a nav link is clicked
+
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
     navMenu.classList.remove('menu-open')
@@ -124,7 +124,7 @@ navLinks.forEach(link => {
   })
 })
 
-// close menu when clicking outside nav
+/
 document.addEventListener('click', (e) => {
   if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
     navMenu.classList.remove('menu-open')
